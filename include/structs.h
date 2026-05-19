@@ -1,10 +1,11 @@
-#ifndef TYPES_H
-#define TYPES_H
+#ifndef STRUCTS_H
+#define STRUCTS_H
+
 #include "constants.h"
 
 struct Inventory {
-    int itemType;
-    char itemChar;
+    int items[3];
+    int selectedSlot;
 };
 
 struct Player {
@@ -24,7 +25,7 @@ struct Enemy {
     int alive;
 };
 
-struct RoomConnections {
+struct Connections {
     int north;
     int south;
     int east;
@@ -33,13 +34,32 @@ struct RoomConnections {
 
 struct Room {
     char tiles[MAP_HEIGHT][MAP_WIDTH];
-    RoomConnections connections;
+    Connections connections;
     int itemType;
     int itemX;
     int itemY;
     int itemPickedUp;
     int isLocked;
     int visited;
+};
+
+struct HighScore {
+    char name[20];
+    int score;
+};
+
+struct GameState {
+    Player player;
+    Enemy enemies[TOTAL_ENEMIES];
+    Room rooms[TOTAL_ROOMS];
+    int state;
+    int turnCount;
+    int enemyKills;
+    int damageReceived;
+    int difficulty;
+    int enemySpeed;
+    char lastMessage[100];
+    HighScore topScores[3];
 };
 
 #endif
