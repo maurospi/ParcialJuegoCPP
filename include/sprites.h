@@ -1,0 +1,22 @@
+#ifndef SPRITES_H
+#define SPRITES_H
+
+#include "constants.h"
+
+const char* SPR_PLAYER = COLOR_CYAN "☺ " COLOR_RESET;
+const char* SPR_GUARD = COLOR_RED "☻ " COLOR_RESET;
+const char* SPR_GHOST = COLOR_MAGENTA "👻" COLOR_RESET;
+const char* SPR_BOSS = COLOR_RED COLOR_BOLD "👹" COLOR_RESET;
+const char* SPR_SWORD = COLOR_YELLOW "⚔ " COLOR_RESET;
+const char* SPR_KEY = COLOR_YELLOW "🔑" COLOR_RESET;
+const char* SPR_EXIT = COLOR_GREEN "🚪" COLOR_RESET;
+const char* SPR_TREE = COLOR_GREEN "♣ " COLOR_RESET;
+const char* SPR_ROCK = COLOR_WHITE "● " COLOR_RESET;
+
+const char* TXT_WALL_LIGHT = COLOR_BLUE "▓▓" COLOR_RESET;
+const char* TXT_WALL_DARK = COLOR_BLUE "▒▒" COLOR_RESET;
+const char* TXT_FLOOR = COLOR_WHITE "░░" COLOR_RESET;
+
+#define ICON_HEART COLOR_RED "❤ " COLOR_RESET
+
+#endif

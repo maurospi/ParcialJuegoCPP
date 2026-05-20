@@ -1,4 +1,7 @@
 #include "renderer.h"
+#include "input.h"
+#include "story.h"
+#include "sprites.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
