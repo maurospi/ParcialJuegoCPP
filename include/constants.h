@@ -25,8 +25,8 @@ const int ITEM_NONE = 0;
 const int ITEM_SWORD = 1;
 const int ITEM_KEY = 2;
 
-const int ENEMY_TYPE_ONE = 0;
-const int ENEMY_TYPE_TWO = 1;
+const int ENEMY_TYPE_GUARD = 0;
+const int ENEMY_TYPE_GHOST = 1;
 const int ENEMY_DAMAGE = 1;
 
 const int STATE_PLAYING = 0;
