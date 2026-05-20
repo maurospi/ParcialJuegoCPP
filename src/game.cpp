@@ -1,7 +1,9 @@
 #include "game.h"
 #include "player.h"
-#include "enemy.h"
 #include "room.h"
+#include "enemy.h"
+#include "inventory.h"
+#include "audio.h"
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>

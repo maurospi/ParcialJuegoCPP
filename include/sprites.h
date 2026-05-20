@@ -17,6 +17,4 @@ const char* TXT_WALL_LIGHT = COLOR_BLUE "▓▓" COLOR_RESET;
 const char* TXT_WALL_DARK = COLOR_BLUE "▒▒" COLOR_RESET;
 const char* TXT_FLOOR = COLOR_WHITE "░░" COLOR_RESET;
 
-#define ICON_HEART COLOR_RED "❤ " COLOR_RESET
-
 #endif
