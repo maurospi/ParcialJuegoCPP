@@ -6,3 +6,5 @@ tempCodeRunnerFile.cpp
 .DS_Store
 Thumbs.db
 .vscode
+.build
+/build
