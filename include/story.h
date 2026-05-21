@@ -65,8 +65,6 @@ const RoomStory GAME_STORY[TOTAL_ROOMS] = {
         "           .-.\n"
         "          ( 0 )\n"
         "           `-'\n"
-        "
-        "
     },
     {
         "EL EXAMEN FINAL",

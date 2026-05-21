@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-hola
-=======
 # Dungeon Escape
 
 **Proyecto:** Parcial Final — Videojuego en C++
@@ -137,4 +134,3 @@ make
 
 **Disclaimer de IA:**
 Algunas partes del código, como la lógica de colisiones, el diseño de la interfaz ASCII y ciertas estructuras, fueron generadas o sugeridas por Inteligencia Artificial para cumplir con los requerimientos del proyecto y mejorar la experiencia de usuario.
->>>>>>> juego funcional, creacion de mas variables, mejora de logica, arreglo de cmake y disclaimer de uso de is en ciertas partes
