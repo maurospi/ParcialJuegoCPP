@@ -5,9 +5,9 @@
 void initPlayer(Player *player) {
     (*player).x = PLAYER_START_X;
     (*player).y = PLAYER_START_Y;
-    (*player).health = PLAYER_START_HEALTH;
+    (*player).health = 3;
     (*player).currentRoom = PLAYER_START_ROOM;
-    for (int i = 0; i < 3; i++) (*player).inventory.items[i] = ITEM_NONE;
+    for(int i=0; i<3; i++) (*player).inventory.items[i] = ITEM_NONE;
     (*player).inventory.selectedSlot = 0;
 }
 
@@ -16,13 +16,9 @@ int movePlayer(Player *player, int dx, int dy, Room *rooms) {
     int newY = (*player).y + dy;
     int rIdx = (*player).currentRoom;
 
-    if (newX >= 0 && newX < MAP_WIDTH && newY >= 0 && newY < MAP_HEIGHT) {
+    if (isTileWalkable(&rooms[rIdx], newX, newY)) {
         char tile = rooms[rIdx].tiles[newY][newX];
         
-        if (tile == TILE_WALL || tile == TILE_TREE || tile == TILE_ROCK) {
-            return 0;
-        }
-
         int nextRoom = NO_ROOM;
         if (tile == TILE_DOOR_NORTH) nextRoom = rooms[rIdx].connections.north;
         else if (tile == TILE_DOOR_SOUTH) nextRoom = rooms[rIdx].connections.south;
@@ -31,12 +27,11 @@ int movePlayer(Player *player, int dx, int dy, Room *rooms) {
 
         if (nextRoom != NO_ROOM) {
             int hasKey = 0;
-            for (int i = 0; i < 3; i++) if ((*player).inventory.items[i] == ITEM_KEY) hasKey = 1;
+            for(int i=0; i<3; i++) if((*player).inventory.items[i] == ITEM_KEY) hasKey = 1;
             if (rooms[nextRoom].isLocked && !hasKey) {
-                return 0;
+                return -1;
             }
             (*player).currentRoom = nextRoom;
-            rooms[nextRoom].visited = 1;
             if (tile == TILE_DOOR_NORTH) { (*player).x = MAP_WIDTH / 2; (*player).y = MAP_HEIGHT - 2; }
             else if (tile == TILE_DOOR_SOUTH) { (*player).x = MAP_WIDTH / 2; (*player).y = 1; }
             else if (tile == TILE_DOOR_EAST) { (*player).x = 1; (*player).y = MAP_HEIGHT / 2; }
@@ -54,7 +49,16 @@ int movePlayer(Player *player, int dx, int dy, Room *rooms) {
 int pickUpItem(Player *player, Room *room) {
     if ((*room).itemType != ITEM_NONE && (*room).itemPickedUp == 0) {
         if ((*player).x == (*room).itemX && (*player).y == (*room).itemY) {
-            for (int i = 0; i < 3; i++) {
+            if ((*room).itemType == ITEM_COFFEE) {
+                if ((*player).health < 3) {
+                    (*player).health++;
+                    (*room).itemPickedUp = 1;
+                    return 3;
+                } else {
+                    return 2;
+                }
+            }
+            for(int i=0; i<3; i++) {
                 if ((*player).inventory.items[i] == ITEM_NONE) {
                     (*player).inventory.items[i] = (*room).itemType;
                     (*room).itemPickedUp = 1;
@@ -84,4 +88,8 @@ int dropItem(Player *player, Room *room) {
 void damagePlayer(Player *player, int amount) {
     (*player).health -= amount;
     if ((*player).health < 0) (*player).health = 0;
+}
+
+int isPlayerAlive(Player *player) {
+    return ((*player).health > 0);
 }

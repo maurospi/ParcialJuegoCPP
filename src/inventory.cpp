@@ -1,8 +1,8 @@
 #include "inventory.h"
-#include "structs.h"
+#include "types.h"
 
 int hasItem(Player *player) {
-    for (int i = 0; i < 3; i++) {
+    for(int i=0; i<3; i++) {
         if ((*player).inventory.items[i] != ITEM_NONE) return 1;
     }
     return 0;

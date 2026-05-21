@@ -1,19 +1,27 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 
-#include "structs.h"
+#include "types.h"
+#include "enemy.h"
 
 void clearScreen();
+
 void drawRoom(Room *rooms, Player *player, Enemy *enemies, int enemyCount);
-void drawHUD(Player *player, int roomIndex);
-void drawMessage(const char *message);
+
+void drawHUD(GameState *game);
+
 void drawGameOver();
+
 void drawVictory();
-void drawMinimap(Room *rooms, Player *player);
+
+void drawTitleScreen();
+void drawMessage(const char *message);
 void drawDifficultyMenu();
+void drawMinimap(Room *rooms, Player *player);
 void drawStats(GameState *game);
 void drawHighScores(HighScore *scores);
-void drawTitleScreen();
-void drawStoryScreen(int roomIndex);
+void drawItemPickupCinematic(int itemType);
+void drawBossCinematic();
+void drawExitExamCinematic();
 
 #endif
