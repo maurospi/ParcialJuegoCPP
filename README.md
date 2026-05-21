@@ -1,7 +1,7 @@
 # Dungeon Escape
 
 **Proyecto:** Parcial Final — Videojuego en C++
-**Asignatura:** Programación I
+**Asignatura:** Pensamiento Algoritmico
 **Semestre:** 2026-1
 
 **Integrantes:**
